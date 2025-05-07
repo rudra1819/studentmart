@@ -18,11 +18,16 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <%= render "shared/header" %>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

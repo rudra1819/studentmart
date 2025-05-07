@@ -5,10 +5,15 @@
     "esbuild": "^0.25.4"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --loader:.woff2=file --loader:.woff=file --loader:.ttf=file --loader:.eot=file --loader:.svg=file --watch"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.13"
+    "@hotwired/turbo-rails": "^8.0.13",
+    "bootstrap": "4.3.1",
+    "esbuild-plugin-url": "^0.0.1",
+    "font-awesome": "4.7.0",
+    "jquery": "3.4.1",
+    "popper.js": "1.14.7"
   }
 }
