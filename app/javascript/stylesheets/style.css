@@ -3,6 +3,9 @@ body {
   color: #0c0c0c;
   background-color: #ffffff;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .layout_padding {
@@ -181,21 +184,37 @@ a:focus {
           align-items: center;
 }
 
-.user_option_box a {
+.user_option_box .action_link {
   color: #ffffff;
   margin-left: 25px;
   text-transform: uppercase;
 }
 
-.user_option_box a i {
+.user_option_box .action_link i {
   color: #f3c93e;
 }
 
-.user_option_box a span {
+.user_option_box .action_link span {
   margin-left: 5px;
 }
 
-.user_option_box a:hover {
+.user_option_box .action_link:hover {
+  color: #f3c93e;
+}
+
+.user_login_button {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #f3c93e;
+  color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #f3c93e;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.user_login_button:hover {
+  background-color: transparent;
   color: #f3c93e;
 }
 

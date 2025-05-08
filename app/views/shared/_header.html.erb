@@ -9,9 +9,7 @@
           </a>
           <a href="#">
             <i class="fa fa-envelope" aria-hidden="true"></i>
-            <span><% if user_signed_in? %>Email :
-				        <%= current_user.email %>
-				      <% end %></span>
+            <span>Email : info@studentmart.com</span>
           </a>
         </div>
         <form class="search_form" action="#" method="get">
@@ -20,32 +18,32 @@
             <i class="fa fa-search" aria-hidden="true"></i>
           </button>
         </form>
-        <div class="user_option_box">
-          <div class="dropdown account-dropdown">
-				  	<a href="#" class="account-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    	<i class="fa fa-user" aria-hidden="true"></i>
-				    	<span>
-				      <% if user_signed_in? %>
-				        My Account
-				      <% end %>
-				    	</span>
-				  	</a>
-				  	<div class="dropdown-menu dropdown-menu-right">
-				    	<% if user_signed_in? %>
-				      	<%= link_to 'Profile', edit_user_registration_path, class: "dropdown-item" %>
-				      	<%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-				    		<% else %>
-				      	<%= button_to 'Login', new_user_session_path, class: "dropdown-item" %>
-				      	<%= button_to 'Sign Up', new_user_registration_path, class: "dropdown-item" %>
-				    	<% end %>
-				  	</div>
-					</div>
+        <% if user_signed_in? %>
+          <div class="user_option_box">
+            <%= link_to "#", class: "cart-link action_link" do %>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <span>Cart</span>
+            <% end %>
 
-          <%= link_to "#", class: "cart-link" do %>
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <span>Cart</span>
-          <% end %>
-        </div>
+            <div class="dropdown account-dropdown">
+              <a href="#" class="account-link dropdown-toggle action_link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span>
+                  My Account
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <%= link_to 'Profile', edit_user_registration_path, class: "dropdown-item" %>
+                <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="mb-3 mb-md-0">
+            <%= link_to "Login", new_user_session_path, class: "user_login_button" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "user_login_button ml-2" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

@@ -12,7 +12,11 @@
   }
 }
 
-@media (max-width: 1120px) {}
+@media (max-width: 1120px) {
+  .contact_nav {
+    display: none;
+  }
+}
 
 @media (max-width: 992px) {
   .hero_area {
@@ -21,10 +25,6 @@
 
   .slider_section .detail-box {
     margin-bottom: 45px;
-  }
-
-  .contact_nav {
-    display: none;
   }
 
   .search_form {
