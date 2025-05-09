@@ -6,4 +6,13 @@ class User < ApplicationRecord
 
          has_one_attached :avatar
 
+         def shopkeeper?
+          role == 'shopkeeper'
+        end
+
+        def school?
+          role == 'school'
+        end
+
+
 end

@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   get "products", to: "static#product"
   get get "testimonial", to: "static#testimonial"
   get "why", to: "static#why"
+  resources :cart_items, only: [:create, :index, :destroy]
+
 
 end
