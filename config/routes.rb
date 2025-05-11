@@ -7,10 +7,7 @@ Rails.application.routes.draw do
   get "users/update"
   get "users/show"
   get "users/destroy"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
@@ -20,9 +17,14 @@ Rails.application.routes.draw do
   root to: "static#index"
   get "about", to: "static#about"
   get "products", to: "static#product"
-  get get "testimonial", to: "static#testimonial"
+  get "testimonial", to: "static#testimonial"
   get "why", to: "static#why"
   resources :cart_items, only: [:create, :index, :destroy]
+  get 'static/index/:id', to: 'static#index', as: 'static_index'
+  resource :cart, only: [:show]
+
+  get "shopkeeper", to: "shopkeepers#show"
+  get "school", to: "schools#show"
 
 
 end

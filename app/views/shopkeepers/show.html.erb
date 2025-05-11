@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Shopkeeper Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .wrapper {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+    .sidebar {
+      background: #434f78;
+      color: #fff;
+      min-width: 220px;
+      max-width: 220px;
+      min-height: 100vh;
+    }
+    .sidebar .nav-link {
+      color: #ccc;
+    }
+    .sidebar .nav-link:hover {
+      background: #495057;
+      color: #fff;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -220px;
+        top: 0;
+        bottom: 0;
+        transition: left 0.3s ease-in-out;
+        z-index: 1030;
+      }
+      .sidebar.active {
+        left: 0;
+      }
+      .content {
+        padding: 15px;
+      }
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1020;
+      }
+      .overlay.show {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar d-flex flex-column p-3" id="sidebar">
+      <h4 class="text-center text-white mb-4">Shop Admin</h4>
+      <a href="#" class="nav-link">Dashboard</a>
+      <a href="#" class="nav-link">Products</a>
+      <a href="#" class="nav-link">Orders</a>
+      <a href="#" class="nav-link">Customers</a>
+      <a href="#" class="nav-link">Reports</a>
+      <a href="#" class="nav-link">Settings</a>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="content w-100">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-outline-secondary d-lg-none" onclick="toggleSidebar()">☰</button>
+        <a class="navbar-brand ml-2" href="#">Dashboard</a>
+        <div class="ml-auto">
+          <button class="btn btn-outline-secondary btn-sm">Logout</button>
+        </div>
+      </nav>
+
+      <!-- Cards -->
+      <div class="row mt-4">
+        <div class="col-sm-6 col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5>Total Sales</h5>
+              <p>₹12,300</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5>New Orders</h5>
+              <p>34 Orders</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5>Customers</h5>
+              <p>154 Users</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <h5 class="mt-4">Recent Orders</h5>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Order #</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1001</td>
+              <td>Ravi Kumar</td>
+              <td>₹1,500</td>
+              <td><span class="badge badge-success">Completed</span></td>
+            </tr>
+            <tr>
+              <td>#1002</td>
+              <td>Anita Sharma</td>
+              <td>₹2,100</td>
+              <td><span class="badge badge-warning">Pending</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('show');
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

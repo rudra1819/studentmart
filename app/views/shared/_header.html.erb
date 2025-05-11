@@ -20,10 +20,9 @@
         </form>
         <% if user_signed_in? %>
           <div class="user_option_box">
-            <%= link_to "#", class: "cart-link action_link" do %>
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              <span>Cart</span>
-            <% end %>
+            <%= button_to 'Add To Cart', cart_items_path(product_id: product.id), method: :post, class: "add_cart_btn" do %>
+  <span>Add To Cart</span>
+<% end %>
 
             <div class="dropdown account-dropdown">
               <a href="#" class="account-link dropdown-toggle action_link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

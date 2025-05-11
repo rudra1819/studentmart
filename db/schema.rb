@@ -39,16 +39,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_09_101507) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "cart_items", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "product_name"
-    t.decimal "price"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_cart_items_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -71,5 +61,4 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_09_101507) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cart_items", "users"
 end
